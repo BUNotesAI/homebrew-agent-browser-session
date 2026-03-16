@@ -1,5 +1,5 @@
 class AgentBrowserSession < Formula
-  desc "Headless browser automation CLI for AI agents"
+  desc "Browser automation CLI for AI agents with persistent login"
   homepage "https://github.com/BUNotesAI/agent-browser-session"
   version "0.4.5"
 
@@ -29,19 +29,17 @@ class AgentBrowserSession < Formula
     libexec.install "dist"
     libexec.install "node_modules"
     libexec.install "package.json"
+    libexec.install "skills"
     libexec.install "bin/agent-browser-session"
 
-    # Wrapper script sets AGENT_BROWSER_DAEMON_DIR so the binary finds daemon.js
+    # Wrapper script sets env vars so the binary finds daemon.js and skills
     (bin/"agent-browser-session").write <<~SH
       #!/bin/sh
       export AGENT_BROWSER_DAEMON_DIR="#{libexec}/dist"
+      export AGENT_BROWSER_SKILLS_DIR="#{libexec}/skills"
       exec "#{libexec}/agent-browser-session" "$@"
     SH
     chmod 0755, bin/"agent-browser-session"
-  end
-
-  def post_install
-    system "npx", "--prefix", libexec.to_s, "patchright", "install", "chromium"
   end
 
   test do
