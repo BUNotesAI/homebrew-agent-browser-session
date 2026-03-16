@@ -8,20 +8,20 @@ class AgentBrowserSession < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/BUNotesAI/agent-browser-session/releases/download/v0.4.5/agent-browser-session-darwin-arm64.tar.gz"
-      sha256 "PLACEHOLDER"
+      sha256 "003d54163e24c2bea3844c64ae050991b81f9280091224bc77e6257521a5c6ff"
     elsif Hardware::CPU.intel?
       url "https://github.com/BUNotesAI/agent-browser-session/releases/download/v0.4.5/agent-browser-session-darwin-x64.tar.gz"
-      sha256 "PLACEHOLDER"
+      sha256 "ed6f5334be38b455cff05d7baf80c67c5b4d770202641441fa3c74df8bc6180a"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/BUNotesAI/agent-browser-session/releases/download/v0.4.5/agent-browser-session-linux-arm64.tar.gz"
-      sha256 "PLACEHOLDER"
+      sha256 "8faa83c864fe5d3a702f7a6d1bd734b7f2f5423b90a6de711692049f08c40d7d"
     elsif Hardware::CPU.intel?
       url "https://github.com/BUNotesAI/agent-browser-session/releases/download/v0.4.5/agent-browser-session-linux-x64.tar.gz"
-      sha256 "PLACEHOLDER"
+      sha256 "e0437248c60247ebed354cf82c52857583f44ac20d6e161efca3170b690323fd"
     end
   end
 
